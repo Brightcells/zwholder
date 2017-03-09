@@ -11,9 +11,14 @@ class Placeholder(object):
         # https://en.wikipedia.org/wiki/Zero_width
         self.holders = ['&#8203;', '&#8204;', '&zwnj;', '&#8205;', '&zwj;', '&#8288;']
 
-    def strholder(self, s, n):
+    def strholder(self, s, n=None):
+        # String => List
         l = list(s)
+        # ZW Number
+        n = n or random.randint(1, len(l))
+        # Insert ZW Character
         [l.insert(random.randint(0, len(l)), random.choice(self.holders)) for _ in range(n)]
+        # List => String
         return ''.join(l)
 
 
