@@ -21,6 +21,10 @@ class Placeholder(object):
         # List => String
         return ''.join(l)
 
+    def listholder(self, l, n=None):
+        return [self.strholder(_l, n) for _l in l]
+
 
 _global_instance = Placeholder()
 strholder = _global_instance.strholder
+listholder = _global_instance.listholder
